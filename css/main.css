@@ -1,0 +1,152 @@
+#head {
+	margin:0px;
+	padding:0px;
+	width: 200px;
+	height: 100px;
+	float: left;
+}
+
+#head img{
+	height: 100px;
+}
+
+#header {
+	top: 0px;
+	width: 90%;
+	height: 100px;
+	background-color: #fff;
+	margin: auto;
+	padding-bottom: 14px;
+	padding-right: 5%;
+	padding-left: 5%;
+	border-bottom: 1px solid #eee;
+	position:fixed;
+	z-index: 10000;
+}
+ul#socialmedia {
+	margin: 0;
+	padding: 0;
+	float: right;
+	list-style: none;
+	margin-bottom: 15px;
+	padding-top: 30px;
+}
+
+ul#socialmedia li:first-child a {
+	border-left: none;
+}
+ul#socialmedia li {
+	display: inline;
+}
+li#facebook img {
+	height: 20px;
+}
+li#twitter img {
+	height: 20px;
+}
+li#instagram img {
+	height: 20px;
+	padding-right: 3px;
+}
+li#pinterest img {
+	height: 20px;
+}
+
+.navbar{
+	margin: auto;
+	width: 75%;
+}
+
+.navbar ul{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	overflow: hidden;
+}
+
+.navbar li{
+	display: inline;
+	float: center;
+}
+
+.navbar button {
+    display: inline;
+    font-size: 19;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #189EAD;
+    text-align: center;
+    padding: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 0;
+}
+
+.navbar button {
+    background-color: #127B87;
+} 
+
+h1, h2, h3, h4, h5{
+	font-family: 'Montserrat', sans-serif
+}
+
+p, a{
+	font-family: 'Open Sans', sans-serif;
+}
+
+.content a:link{
+	color: #189EAD;
+	text-decoration: none;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.content a:visited{
+	color: #127B87;
+	text-decoration: none;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.info-box ul, li{
+	list-style-type: none;
+	padding-left: 0;
+	display: inline;
+}
+
+ul#countries{
+	padding-left: 0;
+}
+
+table{
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+	width: 80%;
+	border: none;
+}
+
+td{
+	width: 50%;
+	padding-left: 5px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	border: none;
+	vertical-align: top;
+}
+
+#world-map{
+	margin-top: 20px;
+	height: 500px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+#site{
+	padding-top: 10%;
+	margin-left: 10%;
+	margin-right: 10%;
+}

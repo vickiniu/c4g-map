@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Where We Operate</title>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/jquery-jvectormap-1.2.2.css" type="text/css" media="screen"/>
+  <link rel="stylesheet" href="css/main.css"/>
+  <script src="javascript/jquery/jquery-1.11.1.js"></script>
+  <script src="javascript/scripts/jquery-jvectormap-1.2.2.min.js"></script>
+  <script src="javascript/map/jquery-jvectormap-world-mill-en.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+</head>
+
+
+<body>
+  <div class = "container">
+
+    <div id = "header">
+      <div id="head"><img src = "images/c4g_comb.png"></div>
+      <!--ul id = "socialmedia">
+        <li id = "facebook">
+          <a href = "https://www.facebook.com/WCEComputersForGirls" target = "_blank"><img src="images/facebook.png"></a>
+        </li>
+        <li id = "twitter">
+          <a href = ""><img src="images/twitter.png"></a>
+        </li>
+      </ul-->
+    </div>
+
+    <div class="content" id = "site">
+      <div class = "navbar">
+        <center><h1>Where We Operate</h1></center>
+      </div>
+      <div id="world-map">
+        <!--iframe src="https://mapsengine.google.com/map/embed?mid=zhShPknf-Vi8.k0RUR3mxV8rI" width="800" height="500"></iframe-->
+      </div>
+
+      <p><img src="images/orange-dot.png"> Current Proposal <img src = "images/ltblue-dot.png"> Future Proposal</p>
+
+      <div id="info-box">
+        <center><h3>Countries</h3></center>
+        <ul id = "countries">
+          <center><h4>Current Proposal</h4>
+          <li><a href = "">Kenya</a></li>
+          <li><a href = "">Liberia</a></li>
+          <li><a href = "">South Africa</a></li>
+          <li><a href = "">Tanzania</a></li>
+          <li><a href = "">Uganda</a></li>
+          <li><a href = "">Zambia</a></li>
+          <li><a href = "">Zimbabwe</a></li>
+          <h4>Future Proposal</h4>
+          <li><a href = "">Ethiopia</a></li>
+          <li><a href = "">Ghana</a></li>
+          <li><a href = "">Guatemala</a></li>
+          <li><a href = "">Jamaica</a></li>
+          <li><a href = "">Pakistan</a></li>
+          <li><a href = "">Puerto Rico</a></li></center>
+      </div>
+    </div>
+
+  <script>
+    function initialize(){
+      var myLatlng = new google.maps.LatLng(0, 0);
+      var mapOptions = {
+        zoom: 2,
+        center: myLatlng
+      }
+
+      var map = new google.maps.Map(document.getElementById('world-map'), mapOptions);
+
+      setMarkers(map, current, true);
+      setMarkers(map, future, false);
+    }
+    
+
+    /**
+     * Data for the markers, giving a name and coordinate
+     */
+
+     //TODO: add content strings to arrays
+
+    var current = [
+      ['Kenya', 0.1768697,37.9083265, makeContent('Kenya')],
+      ['Liberia', 6.4336999,-9.4217515, makeContent('Liberia')],
+      ['South Africa', -28.4792625,24.6727135, makeContent('South Africa')],
+      ['Tanzania', -6.3728253,34.8924826, makeContent('Tanzania')],
+      ['Uganda', 1.3707295,32.3032414, makeContent('Uganda')],
+      ['Zambia', 13.1403507,27.8493049, makeContent('Zambia')],
+      ['Zimbabwe', -19.0169211,29.1528018, makeContent('Zimbabwe')]
+    ];
+
+    var future = [
+      ['Ethiopia',9.149175,40.498867, makeContent('Ethiopia')],
+      ['Ghana', 7.9527706,-1.0307118, makeContent('Ghana')],
+      ['Guatemala', 15.7778664,-90.2287257, makeContent('Guatemala')],
+      ['Jamaica', 18.1155173,-77.2760026, makeContent('Jamaica')],
+      ['Pakistan', 30.3894007,69.3532207, makeContent('Pakistan')],
+      ['Puerto Rico', 18.1987192,-66.3526747, makeContent('Puerto Rico')]
+    ];
+
+  
+  function setMarkers(map, locations, marker) {
+    // Add markers to the map
+
+    // Marker sizes are expressed as a Size of X,Y
+    // where the origin of the image (0,0) is located
+    // in the top left of the image.
+
+    // Origins, anchor positions and coordinates of the marker
+    // increase in the X direction to the right and in
+    // the Y direction down.
+    if(marker){
+      var image = {
+        url: 'images/orange-dot.png'
+      };
+    }
+    
+    else{
+      var image = {
+        url: 'images/ltblue-dot.png'
+      };
+    }
+
+
+    // Shapes define the clickable region of the icon.
+    // The type defines an HTML &lt;area&gt; element 'poly' which
+    // traces out a polygon as a series of X,Y points. The final
+    // coordinate closes the poly by connecting to the first
+    // coordinate.
+    var shape = {
+        coords: [1, 1, 1, 20, 18, 20, 18 , 1],
+        type: 'poly'
+    };
+
+    for (var i = 0; i < locations.length; i++) {
+      var country = locations[i];
+      var myLatLng = new google.maps.LatLng(country[1], country[2]);
+
+      var infowindow = new google.maps.InfoWindow({
+        //content: country[3]
+      });
+
+      var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          icon: image,
+          shape: shape,
+          title: country[0]
+      });
+      
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(makeContent(this.title));
+        infowindow.setPosition(this.position);
+        infowindow.open(map);
+      });
+    }
+  }  
+
+  function makeContent(country){
+    var content = '<div id="content">'+'<div id="siteNotice">'+ '</div>' + '<h1 id="firstHeading" class="firstHeading">' + country + '</h1>' +
+        '<div id="bodyContent">' + '<p>Description of C4G program</p>' + '</div>' + '</div>';
+    return content;
+        
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+  </script>
+</body>
+</html>
