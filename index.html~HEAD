@@ -56,8 +56,14 @@
           <li><a href = "">Jamaica</a></li>
           <li><a href = "">Pakistan</a></li>
           <li><a href = "">Puerto Rico</a></li></center>
+        </ul>
       </div>
     </div>
+    <div id = "footer">
+      <a href = "http://worldcomputerexchange.org/"><img src = "images/logo2010.png" alt = "World Computer Exchange"></a>
+      <center><p>A World Computer Exchange initiative</p></center>
+    </div>
+  </div>
 
   <script>
     function initialize(){
