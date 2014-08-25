@@ -23,6 +23,28 @@
 	position:fixed;
 	z-index: 10000;
 }
+
+#footer{
+	margin: 0px;
+	float: left;
+	width: 90%;
+	padding-right: 5%;
+	padding-left: 5%;
+	border-top: 1px solid #eee;
+}
+
+#footer img{
+	display: block;
+	height: 50px;
+	padding-top:14px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#footer p{
+	margin-top: 5px;
+}
+
 ul#socialmedia {
 	margin: 0;
 	padding: 0;
